@@ -7,7 +7,6 @@
   <meta charset="utf-8">
   <title>Example</title>
 </head>
-
 <body>
 
   <?php if($s->isLoggedIn())
