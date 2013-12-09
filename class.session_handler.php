@@ -1,10 +1,6 @@
 <?php
 class Sessions{
 	
-	public function redirect($url, $seconds) {
-		echo '<meta http-equiv="refresh" content="'.$seconds.';url='.$url.'">';
-	}
-	
 	public function c_session () {
 		return(isset($_SESSION['logged'])) ? true : false;
 	}
