@@ -1,6 +1,10 @@
 <?php
 class Sessions{
-	
+
+	public function refresh($page, $seconds) {
+	echo '<meta http-equiv="refresh" content="'.$seconds.';url='.$page.'">';
+	}
+
 	public function c_session () {
 		return(isset($_SESSION['logged'])) ? true : false;
 	}
@@ -14,7 +18,7 @@ class Sessions{
 			}
 		}
 	 
-	public function isLoggedIn() {
+	public function isLoggedOut() {
 		if ($this->c_session() === false) {
 			return true;
 			}
@@ -22,4 +26,5 @@ class Sessions{
 				return false;
 			}
 		}
+	}
 ?>
