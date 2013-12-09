@@ -11,26 +11,36 @@
 
   <?php if($s->isLoggedIn())
   {
-    echo "Welcome {$_SESSION['username'])}, you are currently logged in!";
+    echo "Welcome {$_SESSION['username']}, you are currently logged in! Click <a href='destroy_session.php'>here</a> to logout";
   }
   else {
     ?>
     
 <!-- Form shows if the session isn't created yet -->
   <form method="post" action="">
-    <label for="username">
-    <input type="text" name="username" id="username" placeholder="Type in your username">
+    <input type="text" name="username" placeholder="Type in your username">
     <input type="submit" name="session" value="Continue &raquo;">
   </form>
   
   <?php
   if(isset($_POST['session'])) {
+
+    $username = trim(htmlspecialchars($_POST["username"]));
+
+    if(empty($username)) {
+
+      echo "The username cannot be blank";
+    }
+    else {
+
     $_SESSION["logged"] = true; // Now the session is set to "true" so the handler will know that we have logged in
-    $_SESSION["username"] = trim(htmlspecialchars($_POST["username"])); // This is just to show how you could use the session handler
-    header("Location example.php"); // Refresh the page
+    $_SESSION["username"] = $username; // This is just to show how you could use the session handler
+    $s->refresh("example.php", "0"); // Refresh the page
+    
     }
   }
-  ?>
+}
+?>
   
 </body>
 </html>
