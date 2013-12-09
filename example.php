@@ -25,7 +25,7 @@
   
   <?php
   if(isset($_POST['session'])) {
-    $_SESSION["logged"] = true; // Now the session is true so the handler will know that we are logged in
+    $_SESSION["logged"] = true; // Now the session is set to "true" so the handler will know that we have logged in
     $_SESSION["username"] = trim(htmlspecialchars($_POST["username"])); // This is just to show how you could use the session handler
     header("Location example.php"); // Refresh the page
     }
