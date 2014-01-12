@@ -27,10 +27,10 @@ To check if the user is logged out:
                                     <?php
                                       if($s->isLoggedOut())
                                       {
-                                        // Execute code when the user is logget out
+                                        // Execute code when the user is logged out
                                       }
                                       else {
-                                        // Execute code when the user is logget in
+                                        // Execute code when the user is logged in
                                       }
                                     ?>
   
