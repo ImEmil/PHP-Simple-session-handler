@@ -35,5 +35,5 @@ Sessions::set("lastname" , "Nilsson");	// Random value
 Sessions::display("firstname");	// Prints out our session value
 Sessions::display("lastname");	// Prints out our session value
 
-Sessions::destroy();	// Kills our session & deletes the session cookie safely
+Sessions::destroy();		// Kills our session & deletes the session cookie safely
 ?>
