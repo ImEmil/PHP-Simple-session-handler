@@ -13,19 +13,16 @@ class Sessions {
 	protected static $cookie_params =
         [ 'lifetime'  => 1800, 'path'  => '/', 'httponly'  => false, 'secure'  => false, 'domain'  => null ], $_params;
 
-        public function __construct() {
-                Sessions::$_params = session_get_cookie_params();
-        }
-        
-    	public static function setParams($lifetime, $path, $domain, $secure = false, $httponly = false)
-    	{
-        	session_set_cookie_params($lifetime, $path, $domain, $secure, $httponly);
-        	self::$cookie_params['lifetime'] = $lifetime;
-        	self::$cookie_params['path']     = $path;
-        	self::$cookie_params['domain']   = $domain;
-        	self::$cookie_params['secure']   = $secure;
-        	self::$cookie_params['httponly'] = $httponly;
-    	}
+	public function __construct() {
+        self::$cookie_params['lifetime'] = $lifetime;
+        self::$cookie_params['path']     = $path;
+        self::$cookie_params['domain']   = $domain;
+        self::$cookie_params['secure']   = $secure;
+        self::$cookie_params['httponly'] = $httponly;
+	
+	session_set_cookie_params($lifetime, $path, $domain, $secure, $httponly);
+	self::$_params = session_get_cookie_params();
+	}
 
         public function start() {
                 session_start();
