@@ -11,7 +11,6 @@ spl_autoload_register(function ($class) {
 });
 
 
-
 Sessions::start(); 
 # Session::start(); starting the session so we can use it with our functions
 
